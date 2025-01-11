@@ -1,4 +1,4 @@
-//Sat Jan 11 2025 03:49:22 GMT+0000 (Coordinated Universal Time)
+//Sat Jan 11 2025 03:50:42 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 if (event.budget.kjstatus === 1) {
@@ -14,8 +14,7 @@ if (event.budget.kjstatus === 1) {
       chrome.storage.local.set({
         "sendid": randomNum
       }, function () {});
-      var element_input = document.querySelector(".send-comment-area input");
-      element_input.click();
+      if (document.querySelector("#chat-textarea")) var element_input = document.querySelector("#chat-textarea");else var element_input = document.querySelector(".webcast-chatroom___textarea");
       if (element_input._valueTracker) var _templMethod = element_input._valueTracker.getValue;
       if (element_input.getValue) var _templMethod = element_input.getValue;
       element_input._valueTracker && (element_input._valueTracker.getValue = () => "");
@@ -27,152 +26,60 @@ if (event.budget.kjstatus === 1) {
         });
         element_input.dispatchEvent(eventt);
         element_input._valueTracker && (element_input._valueTracker.getValue = _templMethod);
-        setTimeout(function () {
-          document.querySelector(".send-comment-area button").dispatchEvent(new MouseEvent("click", {
-            "bubbles": true
-          }));
-        }, 200);
+        document.querySelector(".webcast-chatroom___send-btn").dispatchEvent(new MouseEvent("click", {
+          "bubbles": true
+        }));
       }
     } else event.budget.sort >= num ? chrome.storage.local.set({
       "sort": 1
     }, function () {
-      var _0xaca04d = document.querySelector(".send-comment-area input");
-      _0xaca04d.click();
-      if (_0xaca04d._valueTracker) var _0x27b0c8 = _0xaca04d._valueTracker.getValue;
-      if (_0xaca04d.getValue) var _0x27b0c8 = _0xaca04d.getValue;
-      _0xaca04d._valueTracker && (_0xaca04d._valueTracker.getValue = () => "");
+      var _0x3ccbcd = document.querySelector("#chat-textarea");
+      if (_0x3ccbcd._valueTracker) {
+        var _0x1fc3dc = _0x3ccbcd._valueTracker.getValue;
+      }
+      if (_0x3ccbcd.getValue) {
+        var _0x1fc3dc = _0x3ccbcd.getValue;
+      }
+      _0x3ccbcd._valueTracker && (_0x3ccbcd._valueTracker.getValue = () => "");
       if (typeof arr[0] === "undefined") {} else {
-        _0xaca04d.value = hj(arr[0]);
-        var eventt = new InputEvent("input", {
-          "bubbles": true,
-          "cancelable": true
-        });
-        _0xaca04d.dispatchEvent(eventt);
-        _0xaca04d._valueTracker && (_0xaca04d._valueTracker.getValue = _0x27b0c8);
-        setTimeout(function () {
-          document.querySelector(".send-comment-area button").dispatchEvent(new MouseEvent("click", {
+        {
+          _0x3ccbcd.value = hj(arr[0]);
+          var _0x40e86d = new InputEvent("input", {
+            "bubbles": true,
+            "cancelable": true
+          });
+          _0x3ccbcd.dispatchEvent(_0x40e86d);
+          _0x3ccbcd._valueTracker && (_0x3ccbcd._valueTracker.getValue = _0x1fc3dc);
+          document.querySelector(".webcast-chatroom___send-btn").dispatchEvent(new MouseEvent("click", {
             "bubbles": true
           }));
-        }, 200);
+        }
       }
     }) : chrome.storage.local.set({
       "sort": event.budget.sort + 1
     }, function () {
-      var _0x500e16 = document.querySelector(".send-comment-area input");
-      _0x500e16.click();
-      if (_0x500e16._valueTracker) {
-        var _0x4949e5 = _0x500e16._valueTracker.getValue;
+      if (document.querySelector("#chat-textarea")) {
+        var _0x24e7fe = document.querySelector("#chat-textarea");
+      } else var _0x24e7fe = document.querySelector(".webcast-chatroom___textarea");
+      if (_0x24e7fe._valueTracker) {
+        var _0x228758 = _0x24e7fe._valueTracker.getValue;
       }
-      if (_0x500e16.getValue) {
-        var _0x4949e5 = _0x500e16.getValue;
-      }
-      if (_0x500e16._valueTracker) {
-        _0x500e16._valueTracker.getValue = () => "";
-      }
+      if (_0x24e7fe.getValue) var _0x228758 = _0x24e7fe.getValue;
+      _0x24e7fe._valueTracker && (_0x24e7fe._valueTracker.getValue = () => "");
       if (typeof arr[event.budget.sort] === "undefined") {} else {
-        {
-          _0x500e16.value = hj(arr[event.budget.sort]);
-          var eventt = new InputEvent("input", {
-            "bubbles": true,
-            "cancelable": true
-          });
-          _0x500e16.dispatchEvent(eventt);
-          _0x500e16._valueTracker && (_0x500e16._valueTracker.getValue = _0x4949e5);
-          setTimeout(function () {
-            document.querySelector(".send-comment-area button").dispatchEvent(new MouseEvent("click", {
-              "bubbles": true
-            }));
-          }, 200);
-        }
+        _0x24e7fe.value = hj(arr[event.budget.sort]);
+        var _0x12d876 = new InputEvent("input", {
+          "bubbles": true,
+          "cancelable": true
+        });
+        _0x24e7fe.dispatchEvent(_0x12d876);
+        _0x24e7fe._valueTracker && (_0x24e7fe._valueTracker.getValue = _0x228758);
+        document.querySelector(".webcast-chatroom___send-btn").dispatchEvent(new MouseEvent("click", {
+          "bubbles": true
+        }));
       }
     });
   } else chrome.storage.local.set({
     "time1": event.budget.time1 + 3
-  }, function () {});
-}
-if (event.budget.spstatus === 1) {
-  if (event.budget.time2 >= event.budget.sptime) {
-    chrome.storage.local.set({
-      "time2": 0
-    }, function () {});
-    var arras = event.budget.spstr;
-    arras = arras.split(",");
-    if (arras.length == 1) {
-      var index = parseInt(arras[0]),
-        divheight = document.querySelector(".goods-wrapper .live-pro-card-draggable").offsetHeight,
-        asdiv = document.querySelector(".goods-wrapper");
-      asdiv.scrollTop = divheight * index - divheight;
-      setTimeout(function () {
-        var _0x158f96 = document.querySelectorAll(".goods-wrapper .live-pro-card>div")[1],
-          _0x27dc4a = _0x158f96.querySelectorAll("input"),
-          _0x1d4233 = _0x158f96.querySelectorAll(".live-pro-card-draggable");
-        for (var _0x2b3770 = 0; _0x2b3770 < _0x27dc4a.length; _0x2b3770++) {
-          {
-            if (_0x27dc4a[_0x2b3770].value == index) {
-              var _0x1c2ac0 = _0x1d4233[_0x2b3770].querySelector(".live-pro-card-draggable-item-content-price-btn button").textContent.trim();
-              _0x1c2ac0 == "开始讲解" ? (console.log(_0x1c2ac0), _0x1d4233[_0x2b3770].querySelector(".live-pro-card-draggable-item-content-price-btn button").click()) : (console.log(_0x1c2ac0), _0x1d4233[_0x2b3770].querySelector(".live-pro-card-draggable-item-content-price-btn button").click(), setTimeout(function () {
-                console.log(_0x1c2ac0, 23);
-                _0x1d4233[_0x2b3770].querySelector(".live-pro-card-draggable-item-content-price-btn button").click();
-              }, 2000));
-              break;
-            }
-          }
-        }
-      }, 800);
-    } else {
-      var nums = arras.length - 1;
-      let nows = new Date();
-      if (event.budget.spsort > nums) {
-        chrome.storage.local.set({
-          "spsort": 1
-        }, function () {});
-        var index = parseInt(arras[0]),
-          divheight = document.querySelector(".goods-wrapper .live-pro-card-draggable").offsetHeight,
-          asdiv = document.querySelector(".goods-wrapper");
-        asdiv.scrollTop = divheight * index - divheight;
-        setTimeout(function () {
-          var _0x446428 = document.querySelectorAll(".goods-wrapper .live-pro-card>div")[1],
-            _0x58805b = _0x446428.querySelectorAll("input"),
-            _0x20386c = _0x446428.querySelectorAll(".live-pro-card-draggable");
-          for (var _0x31b60c = 0; _0x31b60c < _0x58805b.length; _0x31b60c++) {
-            {
-              if (_0x58805b[_0x31b60c].value == index) {
-                var _0x42b4a8 = _0x20386c[_0x31b60c].querySelector(".live-pro-card-draggable-item-content-price-btn button").textContent.trim();
-                _0x42b4a8 == "开始讲解" ? _0x20386c[_0x31b60c].querySelector(".live-pro-card-draggable-item-content-price-btn button").click() : (_0x20386c[_0x31b60c].querySelector(".live-pro-card-draggable-item-content-price-btn button").click(), setTimeout(function () {
-                  _0x20386c[_0x31b60c].querySelector(".live-pro-card-draggable-item-content-price-btn button").click();
-                }, 2000));
-                break;
-              }
-            }
-          }
-        }, 800);
-      } else {
-        var indea = event.budget.spsort,
-          asi = parseInt(arras[indea]),
-          index = asi,
-          divheight = document.querySelector(".goods-wrapper .live-pro-card-draggable").offsetHeight,
-          asdiv = document.querySelector(".goods-wrapper");
-        asdiv.scrollTop = divheight * index - divheight;
-        setTimeout(function () {
-          var _0x24bbde = document.querySelectorAll(".goods-wrapper .live-pro-card>div")[1],
-            _0x5677b3 = _0x24bbde.querySelectorAll("input"),
-            _0x4ebc75 = _0x24bbde.querySelectorAll(".live-pro-card-draggable");
-          for (var _0x18dcca = 0; _0x18dcca < _0x5677b3.length; _0x18dcca++) {
-            if (_0x5677b3[_0x18dcca].value == index) {
-              var _0xf008d1 = _0x4ebc75[_0x18dcca].querySelector(".live-pro-card-draggable-item-content-price-btn button").textContent.trim();
-              _0xf008d1 == "开始讲解" ? _0x4ebc75[_0x18dcca].querySelector(".live-pro-card-draggable-item-content-price-btn button").click() : (_0x4ebc75[_0x18dcca].querySelector(".live-pro-card-draggable-item-content-price-btn button").click(), setTimeout(function () {
-                _0x4ebc75[_0x18dcca].querySelector(".live-pro-card-draggable-item-content-price-btn button").click();
-              }, 2000));
-              break;
-            }
-          }
-        }, 800);
-        chrome.storage.local.set({
-          "spsort": event.budget.spsort + 1
-        }, function () {});
-      }
-    }
-  } else chrome.storage.local.set({
-    "time2": event.budget.time2 + 3
   }, function () {});
 }
